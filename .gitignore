@@ -1,0 +1,8 @@
+*.i
+*.ii
+*.gpu
+*.ptx
+*.cubin
+*.fatbin
+.gitattributes
+/Calculadora Tarea 1/.vs

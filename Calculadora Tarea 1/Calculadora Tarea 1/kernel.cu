@@ -23,22 +23,22 @@ __global__ void subtract_gpu(int* a, int* b, int* c) {
     *c = *a - *b;
 }
 
-// Función para la multiplicar en la CPU
+// Función para multiplicar en la CPU
 void multiply_cpu(int* a, int* b, int* c) {
     *c = *a * *b;
 }
 
-// Función para la multiplicar en la GPU
+// Función para multiplicar en la GPU
 __global__ void multiply_gpu(int* a, int* b, int* c) {
     *c = *a * *b;
 }
 
-// Función para la dividir en la CPU
+// Función para dividir en la CPU
 void divide_cpu(int* a, int* b, int* c) {
     *c = *a / *b;
 }
 
-// Función para la dividir en la GPU
+// Función para dividir en la GPU
 __global__ void divide_gpu(int* a, int* b, int* c) {
     *c = *a / *b;
 }

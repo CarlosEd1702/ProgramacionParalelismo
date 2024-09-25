@@ -1,0 +1,70 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\cavi1\\OneDrive\\Documentos\\Cuda\\BitMap\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{365AEF69-2E65-4725-BECB-5AA164BF673E}|BitMap\\BitMap.vcxproj|C:\\Users\\cavi1\\OneDrive\\Documentos\\Cuda\\BitMap\\BitMap\\kernel.cu||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{365AEF69-2E65-4725-BECB-5AA164BF673E}|BitMap\\BitMap.vcxproj|solutionrelative:BitMap\\kernel.cu||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{507BC865-34AB-4252-AB60-6D06C1461041}|Solution Items{507BC865-34AB-4252-AB60-6D06C1461041}|C:\\Users\\cavi1\\OneDrive\\Documentos\\Cuda\\BitMap\\BitMap\\greenland_grid_velo.bmp||{58961B49-13E0-48C0-9258-13CBC4D40279}",
+      "RelativeMoniker": "D:0:0:{507BC865-34AB-4252-AB60-6D06C1461041}|Solution Items{507BC865-34AB-4252-AB60-6D06C1461041}|solutionrelative:BitMap\\greenland_grid_velo.bmp||{58961B49-13E0-48C0-9258-13CBC4D40279}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{507BC865-34AB-4252-AB60-6D06C1461041}|Solution Items{507BC865-34AB-4252-AB60-6D06C1461041}|C:\\Users\\cavi1\\OneDrive\\Documentos\\Cuda\\BitMap\\BitMap\\bitmap_image.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{507BC865-34AB-4252-AB60-6D06C1461041}|Solution Items{507BC865-34AB-4252-AB60-6D06C1461041}|solutionrelative:BitMap\\bitmap_image.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "greenland_grid_velo.bmp",
+              "DocumentMoniker": "C:\\Users\\cavi1\\OneDrive\\Documentos\\Cuda\\BitMap\\BitMap\\greenland_grid_velo.bmp",
+              "RelativeDocumentMoniker": "BitMap\\greenland_grid_velo.bmp",
+              "ToolTip": "C:\\Users\\cavi1\\OneDrive\\Documentos\\Cuda\\BitMap\\BitMap\\greenland_grid_velo.bmp",
+              "RelativeToolTip": "BitMap\\greenland_grid_velo.bmp",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-09-23T23:09:55.334Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "kernel.cu",
+              "DocumentMoniker": "C:\\Users\\cavi1\\OneDrive\\Documentos\\Cuda\\BitMap\\BitMap\\kernel.cu",
+              "RelativeDocumentMoniker": "BitMap\\kernel.cu",
+              "ToolTip": "C:\\Users\\cavi1\\OneDrive\\Documentos\\Cuda\\BitMap\\BitMap\\kernel.cu",
+              "RelativeToolTip": "BitMap\\kernel.cu",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-09-23T22:45:05.73Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "bitmap_image.hpp",
+              "DocumentMoniker": "C:\\Users\\cavi1\\OneDrive\\Documentos\\Cuda\\BitMap\\BitMap\\bitmap_image.hpp",
+              "RelativeDocumentMoniker": "BitMap\\bitmap_image.hpp",
+              "ToolTip": "C:\\Users\\cavi1\\OneDrive\\Documentos\\Cuda\\BitMap\\BitMap\\bitmap_image.hpp",
+              "RelativeToolTip": "BitMap\\bitmap_image.hpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-09-23T22:46:20.8Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

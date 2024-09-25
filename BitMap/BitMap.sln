@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BitMap", "BitMap\BitMap.vcxproj", "{365AEF69-2E65-4725-BECB-5AA164BF673E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{507BC865-34AB-4252-AB60-6D06C1461041}"
+	ProjectSection(SolutionItems) = preProject
+		BitMap\bitmap_image.hpp = BitMap\bitmap_image.hpp
+		BitMap\greenland_grid_velo.bmp = BitMap\greenland_grid_velo.bmp
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{365AEF69-2E65-4725-BECB-5AA164BF673E}.Debug|x64.ActiveCfg = Debug|x64
+		{365AEF69-2E65-4725-BECB-5AA164BF673E}.Debug|x64.Build.0 = Debug|x64
+		{365AEF69-2E65-4725-BECB-5AA164BF673E}.Release|x64.ActiveCfg = Release|x64
+		{365AEF69-2E65-4725-BECB-5AA164BF673E}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DFE359B0-1357-4A02-A80D-DB9338EB5CE2}
+	EndGlobalSection
+EndGlobal

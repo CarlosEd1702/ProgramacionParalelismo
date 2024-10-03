@@ -33,8 +33,7 @@
               "ToolTip": "C:\\Users\\cavi1\\OneDrive\\Documentos\\Cuda\\BitMap\\BitMap\\greenland_grid_velo.bmp",
               "RelativeToolTip": "BitMap\\greenland_grid_velo.bmp",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2024-09-23T23:09:55.334Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-23T23:09:55.334Z"
             },
             {
               "$type": "Document",
@@ -44,7 +43,7 @@
               "RelativeDocumentMoniker": "BitMap\\kernel.cu",
               "ToolTip": "C:\\Users\\cavi1\\OneDrive\\Documentos\\Cuda\\BitMap\\BitMap\\kernel.cu",
               "RelativeToolTip": "BitMap\\kernel.cu",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAbAAAA",
+              "ViewState": "AQIAACoAAAAAAAAAAAAAAD8AAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2024-09-23T22:45:05.73Z",
               "EditorCaption": ""
@@ -59,8 +58,7 @@
               "RelativeToolTip": "BitMap\\bitmap_image.hpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-23T22:46:20.8Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-23T22:46:20.8Z"
             }
           ]
         }

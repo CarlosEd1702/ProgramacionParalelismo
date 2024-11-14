@@ -4,6 +4,7 @@
 #include <iostream>
 #include "bitmap_image.hpp"
 
+
 using namespace std;
 
 // Definimos la estructura cuComplex para los números complejos en GPU

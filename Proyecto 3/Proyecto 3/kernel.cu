@@ -1,58 +1,40 @@
-﻿#include <cuda_runtime.h>
+﻿#include "bitmap_image.hpp"
+#include <cuda_runtime.h>
 #include <iostream>
-#include <vector>
-#include "bitmap_image.hpp"
+#include <string>
+
+#define CUDA_CHECK(call) \
+    if ((call) != cudaSuccess) { \
+        std::cerr << "CUDA error at " << __FILE__ << ":" << __LINE__ << std::endl; \
+        return EXIT_FAILURE; \
+    }
 
 const int WIDTH = 1024;
 const int HEIGHT = 1024;
 const int ITERATIONS = 100;
 
-// Macro para verificar errores de CUDA
-#define CUDA_CHECK(call)                                          \
-    do {                                                          \
-        cudaError_t err = call;                                   \
-        if (err != cudaSuccess) {                                 \
-            std::cerr << "CUDA error in " << __FILE__ << " at "   \
-                      << __LINE__ << ": " << cudaGetErrorString(err) << std::endl; \
-            exit(EXIT_FAILURE);                                   \
-        }                                                         \
-    } while (0)
-
-// Kernel para ejecutar el Juego de la Vida
-__global__ void gameOfLifeKernel(int* current, int* next, int width, int height) {
+__global__ void gameOfLifeKernel(bool* board, bool* nextBoard, int width, int height) {
     int x = blockIdx.x * blockDim.x + threadIdx.x;
     int y = blockIdx.y * blockDim.y + threadIdx.y;
 
     if (x >= width || y >= height) return;
 
-    int idx = y * width + x;
-
-    // Calcular el número de vecinos vivos
-    int neighbors = 0;
+    int count = 0;
     for (int dy = -1; dy <= 1; ++dy) {
         for (int dx = -1; dx <= 1; ++dx) {
             if (dx == 0 && dy == 0) continue;
 
-            int nx = x + dx;
-            int ny = y + dy;
+            int nx = (x + dx + width) % width;
+            int ny = (y + dy + height) % height;
 
-            if (nx >= 0 && nx < width && ny >= 0 && ny < height) {
-                neighbors += current[ny * width + nx];
-            }
+            count += board[ny * width + nx];
         }
     }
 
-    // Aplicar las reglas del juego
-    if (current[idx] == 1) {
-        next[idx] = (neighbors == 2 || neighbors == 3) ? 1 : 0;
-    }
-    else {
-        next[idx] = (neighbors == 3) ? 1 : 0;
-    }
+    nextBoard[y * width + x] = (count == 3) || (board[y * width + x] && count == 2);
 }
 
-// Función para guardar el tablero como una imagen BMP
-void saveBoardAsImage(const int* board, int width, int height, const std::string& filename) {
+void saveBoardAsImage(bool* board, int width, int height, const std::string& filename) {
     bitmap_image image(width, height);
     for (int y = 0; y < height; ++y) {
         for (int x = 0; x < width; ++x) {
@@ -63,45 +45,43 @@ void saveBoardAsImage(const int* board, int width, int height, const std::string
     image.save_image(filename);
 }
 
-// Función para inicializar el tablero con un patrón aleatorio
-void initializeBoard(int* board, int width, int height) {
-    for (int i = 0; i < width * height; ++i) {
+int main() {
+    bool* board;
+    bool* nextBoard;
+
+    CUDA_CHECK(cudaMallocManaged(&board, WIDTH * HEIGHT * sizeof(bool)));
+    CUDA_CHECK(cudaMallocManaged(&nextBoard, WIDTH * HEIGHT * sizeof(bool)));
+
+    // Initialize the board randomly
+    for (int i = 0; i < WIDTH * HEIGHT; ++i) {
         board[i] = rand() % 2;
     }
-}
-
-int main() {
-    // Asignar memoria unificada para los tableros
-    int* board;
-    int* nextBoard;
-    CUDA_CHECK(cudaMallocManaged(&board, WIDTH * HEIGHT * sizeof(int)));
-    CUDA_CHECK(cudaMallocManaged(&nextBoard, WIDTH * HEIGHT * sizeof(int)));
-
-    // Inicializar el tablero
-    initializeBoard(board, WIDTH, HEIGHT);
-    saveBoardAsImage(board, WIDTH, HEIGHT, "initial_state.bmp");
 
     dim3 blockSize(16, 16);
     dim3 gridSize((WIDTH + blockSize.x - 1) / blockSize.x, (HEIGHT + blockSize.y - 1) / blockSize.y);
 
-    // Ejecutar las iteraciones
-    for (int i = 0; i < ITERATIONS; ++i) {
-        gameOfLifeKernel << <gridSize, blockSize >> > (board, nextBoard, WIDTH, HEIGHT);
-        CUDA_CHECK(cudaDeviceSynchronize());
+    cudaStream_t stream;
+    CUDA_CHECK(cudaStreamCreate(&stream));
 
-        if (i % 10 == 0) {  // Guardar estados intermedios
+    for (int i = 0; i < ITERATIONS; ++i) {
+        // Launch kernel in the stream
+        gameOfLifeKernel << <gridSize, blockSize, 0, stream >> > (board, nextBoard, WIDTH, HEIGHT);
+
+        // CPU task: Save image while GPU is computing the next generation
+        if (i % 10 == 0) {
+            CUDA_CHECK(cudaStreamSynchronize(stream)); // Ensure GPU work is complete for the current iteration
             saveBoardAsImage(board, WIDTH, HEIGHT, "state_" + std::to_string(i) + ".bmp");
         }
 
+        // Swap boards
         std::swap(board, nextBoard);
     }
 
-    // Guardar el estado final
-    saveBoardAsImage(board, WIDTH, HEIGHT, "final_state.bmp");
+    CUDA_CHECK(cudaStreamSynchronize(stream)); // Ensure all GPU work is complete
+    CUDA_CHECK(cudaStreamDestroy(stream));
 
-    // Liberar memoria
     CUDA_CHECK(cudaFree(board));
     CUDA_CHECK(cudaFree(nextBoard));
 
-    return 0;
+    return EXIT_SUCCESS;
 }

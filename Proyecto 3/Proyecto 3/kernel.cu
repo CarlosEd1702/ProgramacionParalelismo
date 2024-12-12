@@ -52,7 +52,7 @@ int main() {
     CUDA_CHECK(cudaMallocManaged(&board, WIDTH * HEIGHT * sizeof(bool)));
     CUDA_CHECK(cudaMallocManaged(&nextBoard, WIDTH * HEIGHT * sizeof(bool)));
 
-    // Initialize the board randomly
+    // Inicializa el tablero de manera random
     for (int i = 0; i < WIDTH * HEIGHT; ++i) {
         board[i] = rand() % 2;
     }
@@ -64,20 +64,19 @@ int main() {
     CUDA_CHECK(cudaStreamCreate(&stream));
 
     for (int i = 0; i < ITERATIONS; ++i) {
-        // Launch kernel in the stream
+        // Despliega el kernel en el stream
         gameOfLifeKernel << <gridSize, blockSize, 0, stream >> > (board, nextBoard, WIDTH, HEIGHT);
 
-        // CPU task: Save image while GPU is computing the next generation
+        // CPU esta guardando la imagen al mismo tiempo que la GPU esta calculando la siguiente generacion
         if (i % 10 == 0) {
-            CUDA_CHECK(cudaStreamSynchronize(stream)); // Ensure GPU work is complete for the current iteration
+            CUDA_CHECK(cudaStreamSynchronize(stream)); // Asegura que se termine todo el stream 
             saveBoardAsImage(board, WIDTH, HEIGHT, "state_" + std::to_string(i) + ".bmp");
         }
 
-        // Swap boards
         std::swap(board, nextBoard);
     }
 
-    CUDA_CHECK(cudaStreamSynchronize(stream)); // Ensure all GPU work is complete
+    CUDA_CHECK(cudaStreamSynchronize(stream)); // Bandera para Sincronizar el stream y destruirlo posteriormente
     CUDA_CHECK(cudaStreamDestroy(stream));
 
     CUDA_CHECK(cudaFree(board));

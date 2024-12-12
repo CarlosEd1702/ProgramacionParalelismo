@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\cavi1\\OneDrive\\Documentos\\Cuda\\Proyecto 3\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7B150244-BF58-40FA-B02C-D154B7C712BC}|Proyecto 3\\Proyecto 3.vcxproj|C:\\Users\\cavi1\\OneDrive\\Documentos\\Cuda\\Proyecto 3\\Proyecto 3\\kernel.cu||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{7B150244-BF58-40FA-B02C-D154B7C712BC}|Proyecto 3\\Proyecto 3.vcxproj|solutionrelative:Proyecto 3\\kernel.cu||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "kernel.cu",
+              "DocumentMoniker": "C:\\Users\\cavi1\\OneDrive\\Documentos\\Cuda\\Proyecto 3\\Proyecto 3\\kernel.cu",
+              "RelativeDocumentMoniker": "Proyecto 3\\kernel.cu",
+              "ToolTip": "C:\\Users\\cavi1\\OneDrive\\Documentos\\Cuda\\Proyecto 3\\Proyecto 3\\kernel.cu",
+              "RelativeToolTip": "Proyecto 3\\kernel.cu",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAAAoAAABDAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-12-12T17:41:37.16Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
